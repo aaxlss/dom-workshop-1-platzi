@@ -4,8 +4,10 @@
  **/
 
 console.log('Happy hacking :)')
-const url = "https://platzi-avo.vercel.app/api/avo";
+const baseUrl ='https://platzi-avo.vercel.app/'
+const url = `${baseUrl}api/avo`;
 
+const appNode = document.querySelector('#app')
 //web api
 window.fetch(url)
 .then(response => response.json())
@@ -15,9 +17,12 @@ window.fetch(url)
         const img = document.createElement('img');
         const title = document.createElement('h2');
         const value = document.createElement('div')
+        value.textContent = `$${price}`;
+        title.textContent = name;
+        img.src = `https://platzi-avo.vercel.app/${image}`;
         const mainDiv = document.createElement('div')
         mainDiv.append(title, img, value)
         items.push(mainDiv)
     });
-    document.body.append(...items)
+    appNode.append(...items)
 })
