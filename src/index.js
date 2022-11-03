@@ -9,6 +9,14 @@ const url = `${baseUrl}api/avo`;
 
 const appNode = document.querySelector('#app')
 
+const eventDelegation = (event) =>{
+    if(event.target.nodeName === 'H2'){
+        window.alert('Hi!')
+    }
+}
+
+appNode.addEventListener('click', eventDelegation)
+
 const formatPrice = (price) => {
     const newPrice = new window.Intl.NumberFormat('en-EN',{
         style:'currency',
